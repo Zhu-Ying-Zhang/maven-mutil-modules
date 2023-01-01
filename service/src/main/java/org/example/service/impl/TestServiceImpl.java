@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author zhuyingzhang
@@ -49,6 +50,8 @@ public class TestServiceImpl implements TestService {
     public User selectUser() {
         User u = testMapper.selectTestObject();
         log.info("{}", u);
+        u = null;
+        Optional.ofNullable(u).ifPresent(value -> System.out.println(value));
         return u;
     }
 }
