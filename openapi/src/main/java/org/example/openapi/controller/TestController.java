@@ -5,6 +5,8 @@ import org.example.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -40,6 +42,14 @@ public class TestController {
     @GetMapping("/testRedis")
     public String testRedis() {
         redisTemplate.opsForValue().set("Test", 111);
+        return "success!";
+    }
+
+    @GetMapping("/testNull")
+    public String testNull(@RequestParam("id") Integer id) {
+        if (id == 1) {
+            throw new NullPointerException();
+        }
         return "success!";
     }
 }

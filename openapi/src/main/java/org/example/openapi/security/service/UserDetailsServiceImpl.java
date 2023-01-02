@@ -1,4 +1,4 @@
-package org.example.openapi.service;
+package org.example.openapi.security.service;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
