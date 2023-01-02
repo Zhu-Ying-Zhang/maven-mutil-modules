@@ -18,6 +18,7 @@
         <module>service</module>
         <module>openapi</module>
         <module>core</module>
+        <module>task</module>
     </modules>
 
     <properties>
