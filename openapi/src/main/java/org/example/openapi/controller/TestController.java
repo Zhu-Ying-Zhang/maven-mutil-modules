@@ -1,9 +1,9 @@
 package org.example.openapi.controller;
 
 import org.example.core.model.dto.User;
-import org.example.core.utils.RedisUtil;
 import org.example.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +14,7 @@ public class TestController {
     private TestService testService;
 
     @Autowired
-    private RedisUtil redisUtil;
+    private RedisTemplate redisTemplate;
 
     @GetMapping("/hi")
     public String hi() {
@@ -39,6 +39,7 @@ public class TestController {
 
     @GetMapping("/testRedis")
     public String testRedis() {
+        redisTemplate.opsForValue().set("Test", 111);
         return "success!";
     }
 }

@@ -11,5 +11,4 @@ public class RedisUtil {
 
     @Autowired(required = false)
     private RedisTemplate redisTemplate;
-
 }
