@@ -8,4 +8,7 @@ import org.example.core.model.dto.User;
 public interface TestMapper {
 
     public User selectTestObject();
+
+    @MapKey("id")
+    Map<String, UserTest> selectTestObjectTestMap();
 }

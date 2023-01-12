@@ -1,6 +1,7 @@
 package org.example.openapi.controller;
 
 import org.example.core.model.dto.User;
+import org.example.core.model.dto.UserTest;
 import org.example.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 @RestController
 public class TestController {
@@ -51,5 +54,15 @@ public class TestController {
             throw new NullPointerException();
         }
         return "success!";
+    }
+
+    @GetMapping("/testMap")
+    public Map<String, UserTest> testMap() {
+        return testService.getUser();
+    }
+
+    @GetMapping("/testReduce")
+    public Integer testReduce() {
+        return testService.testReduce();
     }
 }

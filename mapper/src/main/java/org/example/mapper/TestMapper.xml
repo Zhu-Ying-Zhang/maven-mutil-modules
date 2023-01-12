@@ -26,6 +26,13 @@
             t_user
     </select>
 
+    <select id="selectTestObjectTestMap" resultType="org.example.core.model.dto.UserTest">
+        SELECT
+            id, name
+        FROM
+            t_user
+    </select>
+
 <!--    <update id="update" parameterType="com.example.demo.entity.MemberAccount">-->
 <!--        UPDATE-->
 <!--        test_project.member_account-->
